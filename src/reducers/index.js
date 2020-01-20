@@ -2,7 +2,9 @@ const initialState = {
   step: 1,
   cardNumber: "",
   postalCode: "",
-  zipCode: ""
+  zipCode: "",
+  success: null,
+  countryName: "Ukraine"
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,6 +13,23 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         [action.field]: action.payload
+      };
+    case "INCREASE_STEP":
+      return {
+        ...state,
+        step: state.step + 1
+      };
+    case "SUBMIT":
+      return {
+        cardNumber: state.cardNumber,
+        postalCode: state.postalCode,
+        zipCode: state.zipCode,
+        countryName: state.countryName
+      };
+    case "SUCCESS":
+      return {
+        ...state,
+        success: action.payload
       };
     default:
       return state;

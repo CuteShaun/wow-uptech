@@ -13,11 +13,17 @@ const increaseStep = payload => {
   };
 };
 
-const decreaseStep = payload => {
+const success = payload => {
   return {
-    type: "DECREASE_STEP",
+    type: "SUCCESS",
     payload
   };
 };
 
-export { updateField, increaseStep, decreaseStep };
+const submit = () => {
+  return {
+    type: "SUBMIT"
+  };
+};
+
+export { updateField, increaseStep, submit, success };
